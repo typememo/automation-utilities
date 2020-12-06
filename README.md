@@ -1,2 +1,3 @@
 # tau
-typememo automation utilities
+
+`tau` is Typememo Automation Utilities
