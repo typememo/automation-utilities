@@ -1,3 +1,3 @@
-# tau
+# Automation utilities
 
-`tau` is Typememo Automation Utilities
+Developed by [たける@typememo](https://github.com/typememo).
