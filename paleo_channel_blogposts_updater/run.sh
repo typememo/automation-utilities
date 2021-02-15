@@ -57,14 +57,16 @@ python3 $CWD/main.py
 # Git
 #
 TYPEMEMO="$HOME/typememo"
-FILE="$HOME/typememo/blog/content/posts/life/paleo-channel-blogposts/manuscript.md"
-HAS_COMMITTED_FILE=$(git add --dry-run ${FILE})
 
 cd ${TYPEMEMO}
+
+FILE="${TYPEMEMO}/blog/content/posts/life/paleo-channel-blogposts/manuscript.md"
+HAS_COMMITTED_FILE=$(git add --dry-run ${FILE})
 
 if [ ! -z "${HAS_COMMITTED_FILE}" ]; then
   git add ${FILE}
   git commit -m "[#117] Auto update paleo channel blogposts"
+  git pull --rebase
   git push
 else
   echo "Nothing will be commited file."
