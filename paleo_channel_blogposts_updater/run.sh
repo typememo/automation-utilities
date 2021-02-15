@@ -36,12 +36,17 @@ for OPT in "$@"; do
   esac
 done
 
+#
+# Update paleo channel blogposts
+#
 export PYTHONPATH=$HOME/typememo/tau/lib/google
+
 CWD=$(
   cd $(dirname $0)
   pwd
 )
 cd $CWD
+
 python3 -m pip install --upgrade \
   google-api-python-client \
   google-auth-httplib2 \
@@ -56,10 +61,17 @@ FILE="$HOME/typememo/blog/content/posts/life/paleo-channel-blogposts/manuscript.
 HAS_COMMITTED_FILE=$(git add --dry-run ${FILE})
 
 cd ${TYPEMEMO}
+
 if [ ! -z "${HAS_COMMITTED_FILE}" ]; then
   git add ${FILE}
   git commit -m "[#117] Auto update paleo channel blogposts"
-  git push 
+  git push
 else
-  echo "NO"
+  echo "Nothing will be commited file."
 fi
+
+#
+# End
+#
+cd -
+echo "End of the paleo channel blogposts updater"
