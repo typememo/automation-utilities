@@ -47,11 +47,12 @@ CWD=$(
 )
 cd $CWD
 
-python3 -m pip install --upgrade \
+PYTHON3="/Users/takeru/.asdf/shims/python3"
+${PYTHON3} -m pip install --upgrade \
   google-api-python-client \
   google-auth-httplib2 \
   google-auth-oauthlib
-python3 $CWD/main.py
+${PYTHON3} ${CWD}/main.py
 
 #
 # Git
